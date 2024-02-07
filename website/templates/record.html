@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="border: 1px solid rgb(211, 211, 211); border-radius: 15px; box-shadow: 0 5px 20px 0 rgba(165, 165, 165, 0.2), 0 6px 10px rgba(179, 179, 179, 0.19);" class="col-md-6 offset-md-3">
+    <div style="padding: 40px;" class="main-content">
+        <div class="card">
+            <div style="font-size: 20px; font-weight: 600;" class="card-header">
+                {{ customer_record.first_name }} {{ customer_record.last_name }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Name</th>
+                                <td>{{ customer_record.first_name }} {{ customer_record.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ customer_record.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Phone</th>
+                                <td>{{ customer_record.phone }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">City</th>
+                                <td>{{ customer_record.city }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Country</th>
+                                <td>{{ customer_record.country }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Zip Code</th>
+                                <td>{{ customer_record.zipcode }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Created At</th>
+                                <td>{{ customer_record.created_at }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ID</th>
+                                <td>{{ customer_record.id }}</td>
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </h5>
+            </div>
+        </div>
+        <a style="text-decoration: none;" href="{% url 'home' %} " class="btn btn-secondary mt-3">Back</a>
+        <a style="text-decoration: none; float: right;" href="{% url 'delete_record' customer_record.id %} " class="btn btn-danger mt-3">Delete</a>
+        <a style="text-decoration: none; float: right; margin-right: 6px;" href="{% url 'update_record' customer_record.id %}" class="btn btn-warning mt-3">Update</a>
+
+    </div>
+</div>
+{% endblock content %}
